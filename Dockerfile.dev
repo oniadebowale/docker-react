@@ -1,0 +1,12 @@
+# Specify a(node) base image and name
+FROM node:21.2-alpine
+# destination working dir to container
+WORKDIR /app
+#copy package.json to current dir
+COPY package.json .
+#install npm depencencies
+RUN npm install
+#copy working dir to container
+COPY . .
+#start npm server
+CMD ["npm", "run", "start"]
